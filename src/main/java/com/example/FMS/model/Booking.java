@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
-
-
-
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -15,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Booking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,8 +27,11 @@ public class Booking {
     private Fare fare;
 
     private String status; // HELD, CONFIRMED, CANCELLED
+
     private Double totalAmount;
+
     private ZonedDateTime expiresAt;
+
     private ZonedDateTime createdAt;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
